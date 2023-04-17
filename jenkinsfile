@@ -18,6 +18,7 @@ pipeline {
         bat 'kubectl apply -f K8s/Deployment.yaml'
         // bat 'kubectl --kubeconfig=C:/Users/amitsharma09/.kube/config apply -f K8s/Deployment.yaml'
         // bat 'kubectl --kubeconfig=%USERPROFILE%/.kube/config apply -f K8s/Deployment.yaml'
+        
       }
     }
   }
