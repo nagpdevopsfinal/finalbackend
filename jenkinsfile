@@ -15,14 +15,24 @@ pipeline {
       }
     }
 
-    stage('Docker Build') {
-      steps {
-        sh 'docker build -t nagpdevopsfinal/i-amitsharma09-backend:latest .'
-        sh 'docker login -u ${dockerUsr} -p ${dockerPwd}'
-        sh 'docker push nagpdevopsfinal/i-amitsharma09-backend:latest'
+    // stage('Docker Build') {
+    //   steps {
+    //     sh 'docker build -t nagpdevopsfinal/i-amitsharma09-backend:latest .'
+    //     sh 'docker login -u ${dockerUsr} -p ${dockerPwd}'
+    //     sh 'docker push nagpdevopsfinal/i-amitsharma09-backend:latest'
 
-      }
-    }
+    //   }
+    // }
+
+    stage('Build & push Docker Image') {
+     steps {
+       script {
+        dockerImage = docker.build("nagpdevopsfinal/i-amitsharma09-backend:latest .")
+        docker.withRegistry('', 'dockerHubCredentials') {
+           dockerImage.push()
+            }
+             }
+              }
 
     stage('Kubernetes Execution') {
       steps {
