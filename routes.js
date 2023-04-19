@@ -35,7 +35,7 @@ const authObj = {
   
   };
 const elasticClient = new Client({
- node: "https://34.125.134.213:9200",
+ node: "https://34.125.118.187:9200",
  auth: authObj,
   tls: {
  ca: fs.readFileSync("./httpsCertificate.crt"),

@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
         - name: node-master-amitsharma09
-          image: nagpdevops/i-amitsharma09-master:latest
+          image: nagpdevopsfinal/i-amitsharma09-backend:latest
           ports:
             - name: http
               containerPort: 4000

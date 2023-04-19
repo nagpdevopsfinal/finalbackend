@@ -1,13 +1,26 @@
 pipeline {
   agent any
+  environment {
+    dockerUsr='nagpdevopsfinal'
+    dockerPwd='dckr_pat_W7xBYkMyRJUD2Cyo8E4jA__JTPE'
+  }
   tools {
     nodejs "nodejs"
   }
 
   stages {
-    stage('Build') {
+    stage('Install') {
       steps {
         sh 'npm i'
+      }
+    }
+
+    stage('Docker Build') {
+      steps {
+        sh 'docker build -t nagpdevopsfinal/i-amitsharma09-backend:latest .'
+        sh 'docker login -u ${dockerUsr} -p ${dockerPwd}'
+        sh 'docker push nagpdevopsfinal/i-amitsharma09-backend:latest'
+
       }
     }
 

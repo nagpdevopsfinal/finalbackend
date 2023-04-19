@@ -2,7 +2,7 @@ const fs = require("fs");
 const https = require("https");
 const axios = require("axios");
 const data = require("./products.json");
-let elasticURL = "https://34.125.134.213:9200";
+let elasticURL = "https://34.125.118.187:9200";
 let authorizationBasic = "Basic ZWxhc3RpYzp4eXhpV1FxRVhYZTFtYWJuVjhUXw==";
 data.forEach((item, index) => {
 
