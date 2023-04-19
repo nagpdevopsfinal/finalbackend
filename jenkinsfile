@@ -33,6 +33,7 @@ pipeline {
             }
              }
               }
+    }
 
     stage('Kubernetes Execution') {
       steps {
