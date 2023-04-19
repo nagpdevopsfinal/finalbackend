@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    KUBECONFIG = '/root/.kube/config'
+    KUBECONFIG = '/tmp/config'
     dockerUsr='nagpdevopsfinal'
     dockerPwd='dckr_pat_W7xBYkMyRJUD2Cyo8E4jA__JTPE'
   }
