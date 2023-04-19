@@ -1,6 +1,7 @@
 pipeline {
   agent any
   environment {
+    KUBECONFIG = '/root/.kube/config'
     dockerUsr='nagpdevopsfinal'
     dockerPwd='dckr_pat_W7xBYkMyRJUD2Cyo8E4jA__JTPE'
   }
@@ -40,6 +41,7 @@ pipeline {
         // bat 'gcloud auth login'
         // bat 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project quick-doodad-360010'
         // bat 'kubectl apply -f K8s/Deployment.yaml'
+        sh "kubectl --kubeconfig=${KUBECONFIG} apply -f deployment-definition.yaml"
         sh 'kubectl apply -f K8s/Deployment.yaml'
         // bat 'kubectl --kubeconfig=C:/Users/amitsharma09/.kube/config apply -f K8s/Deployment.yaml'
         // bat 'kubectl --kubeconfig=%USERPROFILE%/.kube/config apply -f K8s/Deployment.yaml'
