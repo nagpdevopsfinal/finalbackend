@@ -28,7 +28,7 @@ pipeline {
     stage('Build & push Docker Image') {
      steps {
        script {
-        dockerImage = docker.build("nagpdevopsfinal/i-amitsharma09-backend:latest")
+        dockerImage = docker.build("nagpdevopsfinal/i-amitsharma09-backend:V1")
         docker.withRegistry('', 'dockerHubCredentials') {
            dockerImage.push()
             }
